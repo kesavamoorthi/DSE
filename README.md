@@ -1,2 +1,0 @@
-# DSE
-Dynamic Sourcing Website
