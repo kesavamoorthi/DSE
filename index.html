@@ -3,34 +3,939 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Under Construction</title>
+    <title>Dynamic Sourcing Ent., Ltd. - Website Review</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slideshow.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* This is just for this review file to separate the pages visually */
+        .page-separator {
+            border: 0;
+            height: 4px;
+            background-image: linear-gradient(to right, rgba(10, 10, 15, 0), rgba(139, 92, 246, 0.5), rgba(10, 10, 15, 0));
+            margin: 6rem 0;
+        }
+        .page-identifier {
             text-align: center;
-            background-color: #f8f8f8;
-            padding: 50px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
+            font-size: 1rem;
+            color: #555;
+            background-color: #1a1a2e;
+            padding: 10px;
+            margin-bottom: -130px; /* Pull the following content up over the top padding */
+            position: relative;
+            z-index: 50;
+            font-family: monospace;
         }
     </style>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
+    <style>
+        .country-card {
+            position: relative;
+            border-radius: 12px;
+            min-height: 400px;
+            overflow: hidden;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        
+        /* Nền ảnh */
+        .country-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+            opacity: 1;
+        }
+        
+        /* Overlay tối */
+        .country-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.00); /* tăng độ tối */
+            z-index: 2;
+        }
+        
+        /* Đẩy nội dung lên trên lớp nền */
+        .country-card > * {
+            position: relative;
+            z-index: 3;
+        }
+        
+        /* Text trắng có bóng */
+        .country-card h3,
+        .country-card p {
+            color: #ffffff !important;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.85);
+            line-height: 1.5;
+        }
+
+        /* Nền mờ cho đoạn text */
+        .text-bg {
+            background-color: rgba(72, 69, 69, 0.4);
+            padding: 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(2px); /* mờ nền, trình duyệt hiện đại */
+        }
+
+        /* Hình nền cụ thể */
+        .vietnam-card::before {
+            background-image: url('images/Vietnam.jpg');
+        }
+        .india-card::before {
+            background-image: url('images/India.jpg');
+        }
+        .cambodia-card::before {
+            background-image: url('images/Cambodia.jpeg');
+        }
+        .jordan-card::before {
+            background-image: url('images/Jordan.jpg');
+        }
+    </style>
+
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        /* Star field animation layer */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('images/starfield.png');
+            background-size: cover;
+            animation: moveStars 60s linear infinite;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        @keyframes moveStars {
+            0% { background-position: 0 0; }
+            100% { background-position: -1000px 1000px; }
+        }
+
+    </style>
+
+ 
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    
 </head>
 <body>
-    <div class="container">
-        <h1>🚧 Site Under Construction 🚧</h1>
-        <p>We are working hard to bring you an amazing experience. Please check back soon!</p>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="header-main">
+                <div class="nav-logo">
+                    <img src="logo.png" alt="Dynamic Sourcing Logo" class="logo-img">
+                    <div class="nav-logo-text">
+                        <h2 class="company-name"><span class="gradient-text-company-name">Dynamic Sourcing Ent., Ltd</span></h2>
+                    </div>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="#sourcing-network-page" class="nav-link">Sourcing</a></li>
+                <li class="nav-item dropdown">
+                    <a href="services.html" class="nav-link services-main-link" aria-haspopup="true" aria-expanded="false">
+                        Services <span class="dropdown-arrow">&#9660;</span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="services-main-link">
+                        <li><a href="#sourcing-services-page" class="dropdown-link">Sourcing Services</a></li>
+                        <li><a href="#quality-control-page" class="dropdown-link">Quality Control Services</a></li>
+                        <li><a href="#factory-audits-page" class="dropdown-link">Factory Audit Services</a></li>
+                    </ul>
+                </li>
+                <li><a href="#products-page" class="nav-link">Products</a></li>
+                <li><a href="#about-us-page" class="nav-link">About Us</a></li>
+                <li><a href="#faq-page" class="nav-link">FAQ</a></li>
+                <li><a href="#contact-page" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    
+    <main id="index-page">
+        <section id="home" class="hero">
+            <div class="hero-background">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                <div class="gradient-orb orb-3"></div>
+            </div>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title" id="animated-title"></h1>
+                    <p class="hero-subtitle">
+                        Dynamic Sourcing Ent., Limited connects you with premier garment manufacturers in Vietnam, Cambodia, India, and Jordan. Quality, innovation, and reliability delivered. For Sports, Casual and Uniform Buyers!!
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact-page" class="btn btn-primary">Get Started</a>
+                        <a href="#comprehensive-services" class="btn btn-secondary">Explore Services</a>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card"><h3 id="clients-served">0</h3><p>Clients Served</p></div>
+                    <div class="stat-card"><h3 id="products-sourced">0</h3><p>Products Sourced</p></div>
+                    <div class="stat-card"><h3 id="units-exported">0</h3><p>Units Exported</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="what-we-do">
+            <div class="container">
+                <h2 class="section-main-title"><span class="gradient-text">What Can Dynamic Sourcing Do For You?</span></h2>
+                <div class="process-grid">
+                    <div class="process-card process-card-style-1">
+                        <div class="process-number">01</div>
+                        <h3 class="process-heading-discover">Discover - Sourcing & Products Development</h3>
+                        <p>Our team researches and identifies right suppliers across Vietnam, Cambodia, India, and Jordan, develop the samples to match your needs. Provides price quotes and Introduces the right suppliers.</p>
+                    </div>
+                    <div class="process-card process-card-style-2">
+                        <div class="process-number">02</div>
+                        <h3 class="process-heading-target">Target - Validation & Production Planning</h3>
+                        <p>Once we validate the product and its specifications, we start production planning with respective suppliers. We ensure the production facility is right, has enough production capacity and capabilities to achieve and deliver your apparel project.</p>
+                    </div>
+                    <div class="process-card process-card-style-3">
+                        <div class="process-number">03</div>
+                        <h3 class="process-heading-construct">Construct - Bulk Production & Quality Control</h3>
+                        <p>On your approval of the suppliers, we inspect the factories for all compliance, Good manufacturing practice (GMP), upon fulfilling we ensure your products are produced at its best Apparel Quality Standards throughout production.</p>
+                    </div>
+                    <div class="process-card process-card-style-4">
+                        <div class="process-number">04</div>
+                        <h3 class="process-heading-deliver">Deliver - Logistics & Shipping</h3>
+                        <p>Upon quality audit is passed, we help to find right freight forwarders locally if you require and offer full logistics support, and coordinate the shipping for your apparel products to reach its final destination on time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-choose">
+            <div class="container">
+                <h2 class="section-main-title">Why you may go with <span class="gradient-text">Dynamic Sourcing?</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card why-choose-card-bg-1">
+                        <h3 class="why-choose-heading-1">Work Directly With Factories</h3>
+                        <p>Cut out middlemen and work directly with vetted apparel factories across Vietnam, Cambodia, India, and Jordan.</p>
+                    </div>
+                    <div class="feature-card why-choose-card-bg-2">
+                        <h3 class="why-choose-heading-2">Local Expertise, Global Reach</h3>
+                        <p>On-ground teams in all sourcing countries with deep understanding of local apparel manufacturing.</p>
+                    </div>
+                    <div class="feature-card why-choose-card-bg-3">
+                        <h3 class="why-choose-heading-3">Transparent Pricing</h3>
+                        <p>Straightforward pricing with no hidden fees, giving you full control over your sourcing budget.</p>
+                    </div>
+                    <div class="feature-card why-choose-card-bg-4">
+                        <h3 class="why-choose-heading-4">Complete Factory Access</h3>
+                        <p>Receive complete contact details for every factory we introduce, ensuring full transparency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <hr class="page-separator">
+
+    
+    <main id="sourcing-network-page" class="sourcing-network-page">
+        <section class="page-header-section">
+            <div class="container">
+                <h1 class="page-title">Your Dedicated <span class="gradient-text">Sourcing Partner</span></h1>
+                <p class="page-subtitle">Dynamic Sourcing connects you with top suppliers and manufacturers in Vietnam, Cambodia, India, Jordan, and beyond. Since 2008, we've helped 20+ clients from 12+ countries source over 20 million products for startups to major retailers like Walmart, Dick's Sporting Goods, JCPenney, Kmart, and Costco.</p>
+            </div>
+        </section>
+        <section class="countries-section">
+            <div class="container">
+              <div class="countries-grid">
+
+                <!-- Vietnam -->
+                <div id="vietnam-card" class="country-card vietnam-card">
+                  <div class="flag-icon-container">
+                    <img src="vietnam-flag.png" alt="Vietnam Flag" class="flag-image">
+                  </div>
+                  <div class="text-bg">
+                    <h3>Vietnam</h3>
+                    <p>Vietnam ranks as the second-biggest textile exporter in Southeast Asia and serves as a major apparels production center, Garment Exports is the second GDP contributor next to its Rice exports. Offering affordable costs, highly skilled workforce helps to make almost any kind of apparel here. The country excels in premium, high end needle work garments while accommodating smaller MOQ with large quantity production facilities. Signed FTA with Europe, Oceania and ASEAN helps to export duty free Apparels.</p>
+                  </div>
+                </div>
+            
+                <!-- India -->
+                <div id="india-card" class="country-card india-card">
+                  <div class="flag-icon-container">
+                    <img src="india-flag.png" alt="India Flag" class="flag-image">
+                  </div>
+                  <div class="text-bg">
+                    <h3>India</h3>
+                    <p>Massive textile industry with diverse capabilities, from traditional textiles to modern apparel meeting global standards, particularly in cotton and natural fiber products. With the world's youngest workforce and modernized facilities, India can produce any quantity and quality of apparels. Recent tariffs on China have increased demand for the Indian supply.</p>
+                  </div>
+                </div>
+            
+                <!-- Cambodia -->
+                <div id="cambodia-card" class="country-card cambodia-card">
+                  <div class="flag-icon-container">
+                    <img src="cambodia-flag.png" alt="Cambodia Flag" class="flag-image">
+                  </div>
+                  <div class="text-bg">
+                    <h3>Cambodia</h3>
+                    <p>Cambodia is emerging as a key garment manufacturing hub specializing in basic and casual wear. With Chinese investment, a young workforce, and low wages, it's developing strong production capacity to become a major Southeast Asian apparel center. FTAs with Canada and ASEAN support the industry growth.</p>
+                  </div>
+                </div>
+            
+                <!-- Jordan -->
+                <div id="jordan-card" class="country-card jordan-card">
+                  <div class="flag-icon-container">
+                    <img src="jordan-flag.png" alt="Jordan Flag" class="flag-image">
+                  </div>
+                  <div class="text-bg">
+                    <h3>Jordan</h3>
+                    <p>Jordan is a strategic Middle Eastern manufacturing center with trade agreements providing duty-free access to the USA, Canada, and UK. Its large-scale, compliant facilities supply to all major US retailers. Combining skilled overseas and local workers with efficient shipping networks, Jordan offers compelling reasons for manufacturing relocation with appealing price advantage.</p>
+                  </div>
+                </div>
+            
+              </div>
+            </div>
+        </section>
+
+    </main>
+
+    <hr class="page-separator">
+
+    
+    <main id="services-page" class="services-overview-page">
+        <section id="comprehensive-services" class="page-header-section">
+            <div class="container">
+                <h1 class="page-title">Our Comprehensive <span class="gradient-text">Apparel Services</span></h1>
+                <p class="page-subtitle">From initial concept to final delivery, Dynamic Sourcing offers a suite of expert services to streamline your apparel production and ensure quality every step of the way.</p>
+            </div>
+        </section>
+        <section class="service-summary-section">
+            <div class="container">
+                <div class="service-summary-grid">
+                    <div class="service-summary-card">
+                        <div class="service-summary-icon"><span>🔗</span></div>
+                        <h3>Sourcing Services</h3>
+                        <p>We connect you with carefully vetted factories in Vietnam, Cambodia, India, or Jordan that match your specific requirements...</p>
+                        <a href="#sourcing-services-page" class="btn btn-secondary service-learn-more">Learn More</a>
+                    </div>
+                    <div class="service-summary-card">
+                        <div class="service-summary-icon"><span>🛡️</span></div>
+                        <h3>Quality Control Services</h3>
+                        <p>We use AQL 2.5 & 4.0 (or even AQL 1.0) as our standard, and can adapt to third-party inspections if needed...</p>
+                        <a href="#quality-control-page" class="btn btn-secondary service-learn-more">Learn More</a>
+                    </div>
+                    <div class="service-summary-card">
+                        <div class="service-summary-icon"><span>📋</span></div>
+                        <h3> Audit Services</h3>
+                        <p>We will make sure your factory is up to the mark! We check their facilities, machinery, production methods, and quality control systems...</p>
+                        <a href="#factory-audits-page" class="btn btn-secondary service-learn-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <hr class="page-separator">
+    
+   
+    <main id="sourcing-services-page" class="services-detail-page sourcing-services-content">
+        <section class="page-header-section">
+            <div class="container">
+                <h1 class="page-title title-sourcing">Sourcing Services</h1>
+            </div>
+        </section>
+        <nav class="services-sub-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="#comprehensive-services">All Services</a></li>
+                    <li><a href="#sourcing-services-page" class="active-sub-nav">Sourcing Services</a></li>
+                    <li><a href="#quality-control-page">Quality Control</a></li>
+                    <li><a href="#factory-audits-page">Factory Audits</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class="collapsible-content-section">
+            <div class="container">
+                <div class="collapsible-item item-sourcing-1">
+                  <button class="collapsible-trigger" aria-expanded="false">
+                    <h2 class="collapsible-title">Connecting Suppliers</h2>
+                    <span class="collapsible-arrow" aria-hidden="true">
+                      <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                           stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 6 15 12 9 18"></polyline>
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="collapsible-panel">
+                    <p><strong class="assurance-point-lead">We connect you with carefully vetted factories in Vietnam, Cambodia, India, or Jordan that match your specific requirements.</strong> Each recommended supplier can manufacture your product and promptly provide production capacities and timelines through direct communication channels. We arrange factory visits with guided tours and translation support when needed. Our core sourcing service efficiently connects you with trusted manufacturing partners while assisting with production capacity assessments.</p>
+                  </div>
+                </div>
+            
+                <div class="collapsible-item item-sourcing-2">
+                  <button class="collapsible-trigger" aria-expanded="false">
+                    <h2 class="collapsible-title">Developing Products</h2>
+                    <span class="collapsible-arrow" aria-hidden="true">
+                      <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                           stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 6 15 12 9 18"></polyline>
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="collapsible-panel">
+                    <p><strong class="assurance-point-lead">We transform your designs into real products with precision and attention to detail.</strong> Our product development team works closely with you from concept to sampling, ensuring every detail matches your vision while meeting the highest quality standards. Through our trusted manufacturer network, we source optimal fabrics, accessories, and production technologies. We handle prototyping, sampling, technical specs, and production planning while coordinating pattern makers, sample units, production engineers, and suppliers. With strict quality checks at every step, our tailored service makes product development efficient and risk-free for both new launches and improvements.</p>
+                  </div>
+                </div>
+            
+                <div class="collapsible-item item-sourcing-3">
+                  <button class="collapsible-trigger" aria-expanded="false">
+                    <h2 class="collapsible-title">Quick Communications</h2>
+                    <span class="collapsible-arrow" aria-hidden="true">
+                      <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                           stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 6 15 12 9 18"></polyline>
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="collapsible-panel">
+                    <p><strong class="assurance-point-lead">Effective merchandising requires fast, detailed communication.</strong> Our sourcing and merchandising team handles sample approvals, color matching, accessories, production planning, quality control, and shipping documentation—ensuring services exceed your requirements. We work closely with you and factories to bring products to life, managing every component and assembly step with expert knowledge. Our flexible pricing offers both fixed fee and commission-based arrangements to suit your needs. With comprehensive sourcing and merchandising support from start to finish, you can focus on your business with confidence.</p>
+                  </div>
+                </div>
+            
+                <div class="collapsible-item item-sourcing-4">
+                  <button class="collapsible-trigger" aria-expanded="false">
+                    <h2 class="collapsible-title">Getting Best Prices</h2>
+                    <span class="collapsible-arrow" aria-hidden="true">
+                      <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                           stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 6 15 12 9 18"></polyline>
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="collapsible-panel">
+                    <p><strong class="assurance-point-lead">We work closely with you and factories to secure clear, honest pricing based on your product requirements.</strong> You're free to work directly with suppliers to finalize prices, merchandise details, and confirm orders after we make the connection. We'll request your target price to guide the quoting process. As a dedicated sourcing company in Vietnam, Cambodia, India, and Jordan, we focus on connecting you with the right manufacturers rather than acting as commission-based buying agents, ensuring a smooth experience from sampling to shipment.</p>
+                  </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <hr class="page-separator">
+
+    
+    <main id="quality-control-page" class="services-detail-page quality-control-content">
+        <section class="page-header-section">
+            <div class="container">
+                <h1 class="page-title title-qc">Quality Control Services</h1>
+            </div>
+        </section>
+        <nav class="services-sub-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="#comprehensive-services">All Services</a></li>
+                    <li><a href="#sourcing-services-page">Sourcing Services</a></li>
+                    <li><a href="#quality-control-page" class="active-sub-nav">Quality Control</a></li>
+                    <li><a href="#factory-audits-page">Factory Audits</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class="collapsible-content-section">
+            <div class="container">
+                <div class="collapsible-item item-qc-1">
+                  <button class="collapsible-trigger" aria-expanded="false">
+                    <h2 class="collapsible-title">Quality Audits Standards</h2>
+                    <span class="collapsible-arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="collapsible-panel">
+                    <p><strong class="assurance-point-lead">We use AQL 2.5 & 4.0 (or even AQL 1.0) as our standard, additional to our own inspections we are flexible and can adapt like third-party inspections if needed, matching to end customer demands.</strong></p>
+                  </div>
+                </div>
+            
+                <div class="content-sub-heading"><h2>Our Inspection Process for Every Order:</h2></div>
+            
+                <div class="collapsible-item item-qc-2">
+                  <button class="collapsible-trigger" aria-expanded="false">
+                    <h3 class="collapsible-title">1. Pre-Production (PRI)</h3>
+                    <span class="collapsible-arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="collapsible-panel">
+                    <p><strong class="assurance-point-lead">We dig into pre-production samples or factory test runs and chat about what we find in a pre-production meeting.</strong> The factory needs to show they can control and prevent defects by making changes or adding quality supervisors.</p>
+                  </div>
+                </div>
+            
+                <div class="collapsible-item item-qc-3">
+                  <button class="collapsible-trigger" aria-expanded="false">
+                    <h3 class="collapsible-title">2. During Production Inspections (DUPRO)</h3>
+                    <span class="collapsible-arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="collapsible-panel">
+                    <p><strong class="assurance-point-lead">Our inspectors do at least two random checks during production, covering everything from finishing to packing.</strong> We report back based on the AQL method.</p>
+                  </div>
+                </div>
+            
+                <div class="collapsible-item item-qc-4">
+                  <button class="collapsible-trigger" aria-expanded="false">
+                    <h3 class="collapsible-title">3. Final Random Inspection (FRI)</h3>
+                    <span class="collapsible-arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="collapsible-panel">
+                    <p><strong class="assurance-point-lead">Before shipping, our inspectors perform a complete audit using the AQL system.</strong> This includes checking the packing, assortment, SKU, UPC, appearance, defects, measurements, even hand feel, smell and carton markings, etc.</p>
+                  </div>
+                </div>
+            
+                <div class="collapsible-item item-qc-5">
+                  <button class="collapsible-trigger" aria-expanded="false">
+                    <h3 class="collapsible-title">Additional Random Checks</h3>
+                    <span class="collapsible-arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="collapsible-panel">
+                    <p><strong class="assurance-point-lead">If any extra random checks required, we stick to the AQL system but can tweak it to fit your specific standards.</strong></p>
+                  </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <hr class="page-separator">
+
+    
+    <main id="factory-audits-page" class="services-detail-page factory-audit-content">
+        <section class="page-header-section">
+            <div class="container">
+                <h1 class="page-title title-audits">Factory Audit Services</h1>
+            </div>
+        </section>
+        <nav class="services-sub-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="#comprehensive-services">All Services</a></li>
+                    <li><a href="#sourcing-services-page">Sourcing Services</a></li>
+                    <li><a href="#quality-control-page">Quality Control</a></li>
+                    <li><a href="#factory-audits-page" class="active-sub-nav">Factory Audits</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class="collapsible-content-section">
+            <div class="container">
+                <div class="collapsible-item item-audit-1">
+                  <button class="collapsible-trigger" aria-expanded="false">
+                    <h2 class="collapsible-title">Factory Audits</h2>
+                    <span class="collapsible-arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="collapsible-panel">
+                    <p><strong class="assurance-point-lead">We will make sure your factory is up to the mark!</strong> We check their facilities, machinery, production methods, and quality control systems to ensure they meet your standards. A qualified auditor will visit the site to do a thorough evaluation.</p>
+                    <p>We will do what it takes to ensure your specifications and requirements are fully understood and your quality requirements can be enforced. We use parts of the ISO 9000 and SA8000 standards as our standard evaluation framework.</p>
+                    <p><em>Cost is 350 US$/audit plus transport costs or accommodation where required.</em></p>
+                  </div>
+                </div>
+            
+                <div class="collapsible-item item-audit-2">
+                  <button class="collapsible-trigger" aria-expanded="false">
+                    <h2 class="collapsible-title">Ethical Compliance Audits</h2>
+                    <span class="collapsible-arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20" class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="collapsible-panel">
+                    <p><strong class="assurance-point-lead">Need to make sure your suppliers are playing fair?</strong> We can audit them to your standards, or we'll use ours:</p>
+
+                    <div class="audit-subsection">
+                      <h4>Social Audit (SA) / Code of Conduct Evaluation:</h4>
+                      <p>We use SA8000, which works for all industries and gives a clear way to ensure ethical responsibility. It's a great tool for creating a supplier or vendor Code of Conduct. We dig into work environment issues, checking for what's right and wrong based on SA8000. After the audit, you'll get a full report showing what's good and what needs work. We pay close attention to areas that need improvement.</p>
+                    </div>
+                
+                    <div class="audit-subsection">
+                      <h4>Compliance Evaluation:</h4>
+                      <p>We check if the factory is WRAP certified, GMT certified, CTPAT Compliance and engaged with Social community watchdogs like Better works, etc.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <hr class="page-separator">
+    
+    <main id="products-page" class="products-page-content">
+        <section class="page-header-section">
+            <div class="container">
+                <h1 class="page-title product-page-main-title">Product <span class="gradient-text">Categories</span></h1>
+            </div>
+        </section>
+        <section class="product-category-section">
+            <div class="container">
+                <div class="product-category-grid">
+                    <div class="product-category-card product-bg-1" data-category="casuals"><h3 class="product-heading-1">Casual Wear</h3><p>T-shirts, polo shirts, hoodies, sweatshirts, jeans, casual pants, and everyday apparel for men, women, and children.</p></div>
+                    <div class="product-category-card product-bg-2"><h3 class="product-heading-2">Sportswear & Activewear</h3><p>Athletic wear, gym clothing, yoga wear, running gear, and performance apparel with moisture-wicking and technical fabrics.</p></div>
+                    <div class="product-category-card product-bg-3"><h3 class="product-heading-3">Workwear & Uniforms</h3><p>Corporate uniforms, industrial workwear, safety clothing, medical scrubs, and specialized professional apparel.</p></div>
+                    <div class="product-category-card product-bg-4"><h3 class="product-heading-4">Fashion Apparel</h3><p>Dresses, blouses, formal wear, fashion tops, and trend-driven clothing for retail and fashion brands.</p></div>
+                    <div class="product-category-card product-bg-5"><h3 class="product-heading-5">Outerwear</h3><p>Jackets, coats, windbreakers, rain gear, and seasonal outerwear with various insulation and weather protection features.</p></div>
+                    <div class="product-category-card product-bg-6"><h3 class="product-heading-6">Undergarments & Intimates</h3><p>Underwear, bras, sleepwear, loungewear, and intimate apparel with comfort and quality focus.</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Slideshow Modal for Product Images -->
+    <div id="slideshow-modal" class="slideshow-modal">
+        <span class="close-slideshow">&times;</span>
+        <div class="slideshow-content">
+            <div class="slideshow-container">
+                <!-- Slides will be injected here -->
+            </div>
+            <button class="slideshow-prev">&#10094;</button>
+            <button class="slideshow-next">&#10095;</button>
+            <div class="slideshow-caption"></div>
+        </div>
     </div>
+
+    <hr class="page-separator">
+    <main id="about-us-page" class="about-us-page-content">
+        <section class="page-header-section">
+            <div class="container">
+                <h1 class="page-title"><span class="gradient-text">About Us</span></h1>
+            </div>
+        </section>
+        <section class="about-details-section">
+            <div class="container">
+                <div class="about-us-grid">
+                    <div class="about-us-card about-bg-1">
+                        <h2>Dynamic Sourcing’s History:</h2>
+                        <p>The founder Ram (Ramachandran Palaniswamy) born in Tirupur - India (called dollar city because it was exporting 85% of India made knitwear) into textile family who knew nothing but knitting and weaving, after his completion of Engineering, at the age of 20 entered into garment industry in 1990 with an Chennai based knitted garments exporter, after working and done his own stunt of exporting garments with small partnership factory and failures 1996, he moved to Mumbai which was a hub textile industry with many overseas buyers and buying agents were present, he worked for an exporter, traveled to Nepal with some skilled workers from his hometown and set-up a garment factory to overcome quota issues and cheaper wages. Then he worked for an US based buying house in Mumbai until 2000, then he moved to Egypt with his expertise in developing and designing knitwear fabrics joined Mast Industries subsidiary of Limited Inc and moved to Li & Fung, after working for 8 years in Egypt, Turkey, Mauritius, Madagascar and South Africa, started his own venture Dynamic Sourcing by 2008 as an exclusive sourcing company Dynamic Design Ent.Inc/SWC Inc/Design in Motion in USA when the turnover was $4M/year grown to $68M/year million in less than 10 years.</p>
+                    </div>
+                    <div class="about-us-card about-bg-2">
+                        <h2>Why you may ask Dynamic Sourcing:</h2>
+                        <ul>
+                            <li>Committed, transparent, never take commissions from factories (this our biggest promise and strength).</li>
+                            <li>Team of years of experienced technical experts in every aspect of the Industry.</li>
+                            <li>Our capability of one point source, we can help to source not only production facilities for your apparels, we can even help to source your fabrics, accessories from Taiwan, China and other materials to fulfill all your requirements.</li>
+                            <li>Fees - we are not commission agents, we only charge for our services rendered, nothing more nothing less, very transparent and well agreed upon before the services.</li>
+                            <li>We are present in all major textile hubs, other than Vietnam, Cambodia, India, Jordan, we can also run productions from AGOA countries like Egypt, Madagascar and Kenya.</li>
+                            <li>International team, almost every staff are bilingual and local at each production base, so understanding local culture, customs and methods of production is one of our main strength.</li>
+                        </ul>
+                    </div>
+                    <div class="about-us-card about-bg-3">
+                        <h2>Our Growth Path:</h2>
+                        <ul>
+                            <li>2008 - Founded in India as a small company with few staffs to source the accessories and look after India production and 2 staffs in Taiwan to watch the fabric quality and color control and a QA in Jordan.</li>
+                            <li>2009 - Expanded the production sourcing to Vietnam, all other countries got extended step by step based on demands.</li>
+                            <li>2012 - Started our own sampling unit in Vietnam and Exporter license for Dynamic Apparels Import Export Company Limited.</li>
+                            <li>2014 - Established bigger own production facility with 350 workers in Long An, Ho Chi Minh City, Vietnam to reduce the overall cost of the products and expecting to gain TPP benefits.</li>
+                            <li>2020 - Expanded the sampling into small production center to produce Tennis Wear due to low MOQ issues as HD Garments Imports Exports Limited.</li>
+                            <li>2024 - HD Garments renamed as Misa Garments Imports and Exports Limited for sampling and producing low MOQ orders.</li>
+                        </ul>
+                    </div>
+                    <div class="about-us-card about-bg-4">
+                        <h2>The Numbers we are proud of:</h2>
+                        <ul>
+                            <li>Delivered more than $500 Million worth of Apparels not only to USA, and Costco warehouses in Canada, UK, Korea, Japan, Taiwan and Australia in last 10 years.</li>
+                            <li>Started with few staffs, grown to 72 professionals and 400 workers and hope to grow more.</li>
+                            <li>Sourced not only Causal Wear, also Golf Apparels, Tennis Wear, Outer Wear, Pubbed Jackets, Body Mapping, Yoga, High End Sports Wear, Technical Apparels, Work Wear and Uniforms, also Fashion Accessories like Belts and further.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <hr class="page-separator">
+
+    
+    <main id="faq-page" class="faq-page-content">
+        <section class="page-header-section">
+            <div class="container">
+                <h1 class="page-title"><span class="gradient-text">Frequently Asked Questions</span></h1>
+            </div>
+        </section>
+        <section class="faq-content-section">
+            <div class="container">
+                <div class="faq-accordion-container">
+                    <div class="faq-item faq-bg-green">
+                      <button class="collapsible-trigger" aria-expanded="false" aria-controls="faq-panel-1">
+                        <span class="faq-question-text">Is Sourcing Free?</span>
+                        <span class="faq-toggle-icon" aria-hidden="true">
+                          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                               stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18"></polyline>
+                          </svg>
+                        </span>
+                      </button>
+                      <div id="faq-panel-1" class="collapsible-panel" role="region">
+                        <p>We operate in two methods for our clients 1) Sourcing Agent and 2) Managing Representative, thus we receive a fee for service initially whereby we provide a detailed Sourcing services, another is we engage from Product Development, Costing, Source factory, take care of the production, quality control, logistics and shipping, WIP reporting, etc</p>
+                      </div>
+                    </div>
+                
+                    <div class="faq-item faq-bg-pink">
+                      <button class="collapsible-trigger" aria-expanded="false" aria-controls="faq-panel-2">
+                        <span class="faq-question-text">Is there a refund policy?</span>
+                        <span class="faq-toggle-icon" aria-hidden="true">
+                          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                               stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18"></polyline>
+                          </svg>
+                        </span>
+                      </button>
+                      <div id="faq-panel-2" class="collapsible-panel" role="region">
+                        <p>There is no refund policy with our services. We act on behalf of your company as an extension of you and we will try our utmost to achieve your FOB prices, production lead time and shipping on time, etc. We can guarantee that our services will provide the information you may need from our production resources across all countries.</p>
+                      </div>
+                    </div>
+                
+                    <div class="faq-item faq-bg-yellow">
+                      <button class="collapsible-trigger" aria-expanded="false" aria-controls="faq-panel-3">
+                        <span class="faq-question-text">Will you sign an NDA to protect my product?</span>
+                        <span class="faq-toggle-icon" aria-hidden="true">
+                          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                               stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18"></polyline>
+                          </svg>
+                        </span>
+                      </button>
+                      <div id="faq-panel-3" class="collapsible-panel" role="region">
+                        <p>Yes, definitely. It’s mandatory to protect your intellectual property rights for your brands whether you work for your own company or brand or on behalf of someone else, so we will have all our suppliers sign NDA’s.</p>
+                      </div>
+                    </div>
+                
+                    <div class="faq-item faq-bg-blue">
+                      <button class="collapsible-trigger" aria-expanded="false" aria-controls="faq-panel-4">
+                        <span class="faq-question-text">How about the production lead times?</span>
+                        <span class="faq-toggle-icon" aria-hidden="true">
+                          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                               stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18"></polyline>
+                          </svg>
+                        </span>
+                      </button>
+                      <div id="faq-panel-4" class="collapsible-panel" role="region">
+                        <p>After receiving your product details, we'll send you a signed "Agreement For Service." Once you return the signed agreement with our sourcing fees, we begin immediately. We deliver detailed sourcing report with qualified factories and FOB prices within 10 to 15 business days. You can then choose to visit for factory tours or move directly into production with our assistance.<br><br>In general, product development takes 15 to 30 days, on order placement the production takes 90 to 150 days and shipping could be 21 to 45 days based on factory locations and shipping destination.</p>
+                      </div>
+                    </div>
+                
+                    <div class="faq-item faq-bg-red">
+                      <button class="collapsible-trigger" aria-expanded="false" aria-controls="faq-panel-5">
+                        <span class="faq-question-text">How do I know if I am ready to go for overseas Sourcing?</span>
+                        <span class="faq-toggle-icon" aria-hidden="true">
+                          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                               stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18"></polyline>
+                          </svg>
+                        </span>
+                      </button>
+                      <div id="faq-panel-5" class="collapsible-panel" role="region">
+                        <p>That's exactly what our Sourcing Services is designed to determine. Simply submit your sourcing needs, and we'll contact you within 48 hours to confirm if you qualify for a one-on-one assessment call. During this call, we'll answer your questions and help get your project started. We offer no obligation FREE 30 Minute Sourcing Consultation!</p>
+                      </div>
+                    </div>
+                
+                    <div class="faq-item faq-bg-purple">
+                      <button class="collapsible-trigger" aria-expanded="false" aria-controls="faq-panel-6">
+                        <span class="faq-question-text">What services I can expect during factory visits?</span>
+                        <span class="faq-toggle-icon" aria-hidden="true">
+                          <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                               stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18"></polyline>
+                          </svg>
+                        </span>
+                      </button>
+                      <div id="faq-panel-6" class="collapsible-panel" role="region">
+                        <p>We handle your complete business trip, including factory schedule planning. Our team accompanies you to all factory visits, buying meetings, and inspections. We'll guide you through local business practices and cultural norms to ensure productive and enjoyable visits. Importantly we provide professional interpreters to help you communicate effectively with suppliers and gather all required information quickly.</p>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    
+    <hr class="page-separator">
+
+    
+    <main id="contact-page" class="contact-us-page-content">
+        <div class="container">
+            <div class="contact-layout-grid">
+                <div class="contact-text-container">
+                    <h1 class="contact-page-main-heading">Ready to Start your Apparel Sourcing?</h1>
+                    <p class="contact-intro-text">Please fill out this form to get in touch with our team to discuss all your apparel sourcing needs. We will revert back at the earliest with our answers and pricing structure.</p>
+                    <p class="assurance-intro-text">Again our below assurance remains!</p>
+                    <div class="assurance-items-container">
+                        <div class="assurance-item"><p><strong class="assurance-point-lead">Transparent pricing, zero surprises</strong> – just one simple rate for every process that lets you plan ahead with complete confidence.</p></div>
+                        <div class="assurance-item"><p><strong class="assurance-point-lead">Pay only for what you want us to execute</strong> – smart budgeting that scales perfectly with your needs, no waste, no excess.</p></div>
+                        <div class="assurance-item"><p><strong class="assurance-point-lead">Direct factory connections</strong> – cut out the middlemen for crystal-clear communication and industry best prices.</p></div>
+                        <div class="assurance-item"><p><strong class="assurance-point-lead">Local expertise, global reach</strong> – our dedicated teams across Vietnam, Cambodia, India, and Jordan bridge markets seamlessly for effortless international partnerships.</p></div>
+                        <div class="assurance-item"><p><strong class="assurance-point-lead">Pure factory pricing</strong> – no markups, no commissions, no hidden fees. Just honest quotes straight from the suppliers, every time.</p></div>
+                        <div class="assurance-item"><p><strong class="assurance-point-lead">Your dedicated sourcing champions</strong> – we fight for your interests first, not factory profits. Complete client loyalty, guaranteed.</p></div>
+                        <div class="assurance-item"><p><strong class="assurance-point-lead">End-to-end procurement power</strong> – sourcing, logistics, market intel, and beyond. Whatever your supply chain needs, we've got you covered.</p></div>
+                    </div>
+                </div>
+                <div class="contact-form-container form-container-navy">
+                    <form class="contact-form">
+                        <div class="form-group"><input type="text" name="name" placeholder="Your name or your company name (required)" required></div>
+                        <div class="form-group"><input type="email" name="email" placeholder="Email address (required)" required></div>
+                        <div class="form-group"><input type="text" name="apparel_type" placeholder="What kind of apparel you want to source? (required)" required></div>
+                        <div class="form-group"><textarea name="description" placeholder="Product description (Give us as much detail as possible)" rows="4" required></textarea></div>
+                        <div class="form-group"><input type="text" name="quantity" placeholder="Expected Order Quantity (required)" required></div>
+                        <div class="form-group"><input type="text" name="shipping_country" placeholder="Which country will you ship the products to? (required)" required></div>
+                        <div class="form-group">
+                            <select name="sourcing_country_preference" required>
+                                <option value="" disabled selected>Do you know which country you want to source from?</option>
+                                <option value="vietnam">Vietnam</option>
+                                <option value="cambodia">Cambodia</option>
+                                <option value="india">India</option>
+                                <option value="jordan">Jordan</option>
+                                <option value="multiple_countries">Multiple countries</option>
+                                <option value="not_sure">Not Sure / Need Advice</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="service_needed" required>
+                                <option value="" disabled selected>What kind of service are you looking for from us?</option>
+                                <option value="complete_sourcing">Complete product sourcing</option>
+                                <option value="quality_inspection">Quality Inspection services</option>
+                                <option value="factory_audit">Factory Audit Services</option>
+                                <option value="multiple_services">Multiple services</option>
+                                <option value="other">Other (please specify in description)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary contact-submit-btn">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section company-info-footer">
+                    <h3 class="footer-company-name">Dynamic Sourcing Ent., Ltd</h3>
+                    <p>Your trusted partner for global apparel sourcing from Vietnam, Cambodia, India, Jordan and Beyond!</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#comprehensive-services">Services</a></li>
+                        <li><a href="#sourcing-services-page">Sourcing Services</a></li>
+                        <li><a href="#quality-control-page">Quality Control Services</a></li>
+                        <li><a href="#factory-audits-page">Factory Audit Services</a></li>
+                        <li><a href="#products-page">Product Categories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Sourcing Locations</h4>
+                    <ul>
+                        <li><a href="#vietnam-card">Vietnam</a></li>
+                        <li><a href="#cambodia-card">Cambodia</a></li>
+                        <li><a href="#india-card">India</a></li>
+                        <li><a href="#jordan-card">Jordan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><a href="mailto:info@dynamicsourcing.net">Email: info@dynamicsourcing.net</a></p>
+                    <p><a href="https://wa.me/64212358121" target="_blank" rel="noopener noreferrer">WhatsApp: +64212358121</a></p>
+                    <div class="footer-social-icons">
+                        <a href="https://www.linkedin.com/company/dynamicsourcing" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="https://www.facebook.com/dynamicsourcing" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook fa-lg"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dynamicsourcing" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2024</span> Dynamic Sourcing Ent., Limited. All rights reserved.
+                    <span class="footer-bottom-links">
+                        <a href="privacy-policy.html">Privacy Policy</a> |
+                        <a href="terms-of-service.html">Terms of Service</a> |
+                        <a href="cookies-settings.html">Cookies Settings</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script>
+// Function to animate a number from 0 to endValue over a given duration
+function animateCountUp(id, endValue, duration, suffix = '') {
+    const el = document.getElementById(id); // Get the target element by ID
+    const startTime = performance.now();   // Record the start time
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;              // Calculate time passed
+        const progress = Math.min(elapsed / duration, 1);     // Normalize progress (0 to 1)
+        const current = Math.floor(progress * endValue);      // Calculate current value to display
+
+        el.textContent = current.toLocaleString() + suffix;   // Update the element with formatted number
+
+        if (progress < 1) {
+            requestAnimationFrame(update);                    // Continue animation if not yet complete
+        }
+    }
+
+    requestAnimationFrame(update); // Start the animation loop
+}
+
+// Run the animations when the page content has fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+    animateCountUp("clients-served", 20, 2000, "+");         // Animate to 20+
+    animateCountUp("products-sourced", 100, 2000, "+");      // Animate to 100+
+    animateCountUp("units-exported", 20, 2000, "M+");   // Animate to 20M+
+});
+</script>
+
 </body>
 </html>

@@ -1,0 +1,144 @@
+/* Slideshow Modal Styles */
+.slideshow-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.slideshow-modal.active {
+    display: block;
+    opacity: 1;
+}
+
+.slideshow-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slideshow-container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideshow-slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.slideshow-slide.active {
+    display: flex;
+    animation: fadeIn 0.5s ease;
+}
+
+.slideshow-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+}
+
+.close-slideshow {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.2s ease;
+}
+
+.close-slideshow:hover {
+    color: #00d4ff;
+}
+
+.slideshow-prev, .slideshow-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.slideshow-prev {
+    left: -60px;
+}
+
+.slideshow-next {
+    right: -60px;
+}
+
+.slideshow-prev:hover, .slideshow-next:hover {
+    background: #00d4ff;
+}
+
+.slideshow-caption {
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .slideshow-content {
+        width: 95%;
+        margin: 20px auto;
+        height: 70vh;
+    }
+    .slideshow-prev, .slideshow-next {
+        padding: 10px;
+        font-size: 18px;
+        width: 40px;
+        height: 40px;
+    }
+    .slideshow-prev {
+        left: -20px;
+    }
+    .slideshow-next {
+        right: -20px;
+    }
+}
