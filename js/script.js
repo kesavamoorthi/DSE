@@ -251,6 +251,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Contact Form Submission with EmailJS ---
+    const contactForm = document.querySelector('#contact-page .contact-form');
+    function setupContactForm() {
+        if (contactForm && typeof window.emailjs !== 'undefined') {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+                const formObj = {};
+                formData.forEach((value, key) => { formObj[key] = value; });
+                // Replace these with your actual EmailJS values
+                const serviceID = 'service_q1vy7ng'; // TODO: Replace with your EmailJS service ID
+                const templateID = 'template_7no7q72'; // TODO: Replace with your EmailJS template ID
+                emailjs.send(serviceID, templateID, formObj)
+                    .then(function(response) {
+                        alert('Your inquiry has been sent successfully!');
+                        contactForm.reset();
+                    }, function(error) {
+                        alert('There was an error sending your inquiry. Please try again later.');
+                    });
+            });
+        }
+    }
+
+    // Wait for EmailJS to be loaded before setting up the form
+    function waitForEmailJSAndSetupForm() {
+        if (typeof window.emailjs !== 'undefined') {
+            setupContactForm();
+        } else {
+            // Poll every 100ms until emailjs is loaded (max 5s)
+            let waited = 0;
+            const interval = setInterval(() => {
+                if (typeof window.emailjs !== 'undefined') {
+                    clearInterval(interval);
+                    setupContactForm();
+                } else if ((waited += 100) > 5000) {
+                    clearInterval(interval);
+                    // Optionally, show an error or fallback
+                }
+            }, 100);
+        }
+    }
+    waitForEmailJSAndSetupForm();
+
 }); // End of DOMContentLoaded
 
 // === Product Category Slideshow ===
@@ -394,3 +437,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// --- Contact Form Submission with EmailJS ---
